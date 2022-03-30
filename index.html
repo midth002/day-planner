@@ -18,7 +18,7 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
     <title>Work Day Scheduler</title>
   </head>
 
@@ -30,6 +30,34 @@
     </header>
     <div class="container">
       <!-- Timeblocks go here -->
+      <div class="row">
+        
+        <ul class="hour list-group list-group-flush">
+          <li class="hour list-group-item">An item</li>
+          <li class="hour list-group-item">A second item</li>
+          <li class="hour list-group-item">A third item</li>
+          <li class="hour list-group-item">A fourth item</li>
+          <li class="hour list-group-item">And a fifth one</li>
+        </ul>
+        <ul class="list-group col-md-9 ">
+          <li class="list-group-item">An item</li>
+          <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li>
+          <li class="list-group-item">A fourth item</li>
+          <li class="list-group-item">And a fifth one</li>
+        </ul>
+        <div class="list-group col-md-2">
+          <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+            The current button
+          </button>
+          <button type="button" class="list-group-item list-group-item-action">A second item</button>
+          <button type="button" class="list-group-item list-group-item-action">A third button item</button>
+          <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
+          <button type="button" class="list-group-item list-group-item-action" disabled>A disabled button item</button>
+        </div>
+        
+      </div>
+  
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
