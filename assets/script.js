@@ -4,16 +4,22 @@ var currentTime = moment().format("MMM Do, YYYY");
 var timeBlock = $('.time-block')
 var saveBtn = $('.saveBtn')
 var planner = [];
+var storedPlanner;
 $("#currentDay").text(currentTime)
 
-var currentHour = moment().hour() - 7;
+var currentHour = moment().hour();
 
 var hoursArray = ["8", "9", "10", "11", "12", "13", "14", "15", "16"]
 
 function init() {
+    storedPlanner = JSON.parse(localStorage.getItem("planner"));
+
+    if(storedPlanner !== null) {
+        planner = storedPlanner
+    }
+    
     checkHour();
-    getLocalStorage();
-   
+    renderPlanner();  
 }
 
 function checkHour() {
@@ -30,18 +36,19 @@ function checkHour() {
 }
 
 
-function getLocalStorage() {
-    storedPlanner = JSON.parse(localStorage.getItem("planner"));
-    
-    console.log(storedPlanner);
-
-    for(i=0; i < storedPlanner.length; i++) {
+function renderPlanner() {
+    // 
+    for(i=0; i < planner.length; i++) {
         var hourObj = storedPlanner[i].hour;
         if(hourObj) {
             $('#' + hourObj).text(storedPlanner[i].planner)
         } 
     }
  
+}
+
+function storePlanner() {
+    storedPlanner = JSON.parse(localStorage.getItem("planner"));
 }
 
 
@@ -53,12 +60,13 @@ function setLocalStorage() {
     
     var storedHour =  $(this).attr("data-hour");
     var storedPlanner = $('#' + storedHour);
-   
+    
     planner.push({
         hour: storedHour,
-        planner: storedPlanner.val()
+        planner: storedPlanner.val().trim()
     })
     localStorage.setItem("planner", JSON.stringify(planner))
+    storePlanner();
 }
 
 init();
