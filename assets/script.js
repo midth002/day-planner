@@ -1,5 +1,5 @@
 var textArea = $('.past')
-var currentTime = moment().format("MMM Do, YYYY"); 
+var currentTime = moment().format("dddd MMM Do, YYYY"); 
 
 var timeBlock = $('.time-block')
 var saveBtn = $('.saveBtn')
@@ -14,6 +14,7 @@ var hoursArray = ["8", "9", "10", "11", "12", "13", "14", "15", "16"]
 function init() {
     storedPlanner = JSON.parse(localStorage.getItem("planner"));
 
+    // This makes it not an empty array planner when we refresh the page.
     if(storedPlanner !== null) {
         planner = storedPlanner
     }
