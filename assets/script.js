@@ -7,7 +7,7 @@ var planner = [];
 var storedPlanner;
 $("#currentDay").text(currentTime)
 
-var currentHour = moment().hour();
+var currentHour = moment().hour() -3;
 
 var hoursArray = ["8", "9", "10", "11", "12", "13", "14", "15", "16"]
 
